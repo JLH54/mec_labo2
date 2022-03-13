@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesseX: 5
   vitesseY: 1
+  directionX: 0
 --- !u!54 &616380306
 Rigidbody:
   m_ObjectHideFlags: 0

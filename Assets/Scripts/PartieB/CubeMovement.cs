@@ -10,16 +10,10 @@ public class CubeMovement : MonoBehaviour
     [SerializeField]
     private float vitesseY;
 
+    //true = droite, false = gauche
+    [SerializeField]
     private bool directionX;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //true = droite false = gauche
-        directionX = true;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (directionX)
@@ -39,12 +33,10 @@ public class CubeMovement : MonoBehaviour
         if (collision.collider.CompareTag("RightWall"))
         {
             directionX = false;
-            Debug.Log("Hit right wall");
         }
         if (collision.collider.CompareTag("LeftWall"))
         {
             directionX = true;
-            Debug.Log("Hit left wall");
         }
     }
 }

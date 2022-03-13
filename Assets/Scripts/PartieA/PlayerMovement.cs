@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        cube = GetComponent<Rigidbody>();    
+        cube = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         //ceci est l'original, j'ai voulue utiliser le rigid body pour ne pas avoir a dealer avec
         //le fait que mon cube hit les "Blockers". J'ai du rajouter du drag, aussi non il glissait tout le long
+        //ps : je sais que c'est du code inutiliser, mais je voulais que tu vois la difference
         //if (Input.GetKey(KeyCode.A))
         //{
         //    transform.Translate(Vector3.left * (vitesse * Time.deltaTime));
@@ -52,5 +53,5 @@ public class PlayerMovement : MonoBehaviour
         //if (Input.GetKey(KeyCode.S))
         //{
         //    transform.Translate(Vector3.back * (vitesse * Time.deltaTime));
-        }
+    }
 }
