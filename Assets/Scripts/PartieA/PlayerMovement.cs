@@ -7,31 +7,50 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float vitesse;
 
-    private bool touched;
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody cube;
+
+    private void Start()
     {
-       
+        cube = GetComponent<Rigidbody>();    
     }
 
-    // Update is called once per frame
     void Update()
     {
+        Vector3 velocity = cube.velocity;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * (vitesse * Time.deltaTime));
+            velocity.x = vitesse * -10.0f;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * (vitesse * Time.deltaTime));
+            velocity.x = vitesse * 10.0f;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * (vitesse * Time.deltaTime));
+            velocity.z = vitesse * 10.0f;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * (vitesse * Time.deltaTime));
+            velocity.z = vitesse * -10.0f;
         }
-    }
+        cube.velocity = velocity;
+
+        //ceci est l'original, j'ai voulue utiliser le rigid body pour ne pas avoir a dealer avec
+        //le fait que mon cube hit les "Blockers". J'ai du rajouter du drag, aussi non il glissait tout le long
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    transform.Translate(Vector3.left * (vitesse * Time.deltaTime));
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.Translate(Vector3.right * (vitesse * Time.deltaTime));
+        //}
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    transform.Translate(Vector3.forward * (vitesse * Time.deltaTime));
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    transform.Translate(Vector3.back * (vitesse * Time.deltaTime));
+        }
 }
